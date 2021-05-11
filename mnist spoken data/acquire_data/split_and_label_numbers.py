@@ -1,6 +1,6 @@
 import os
 from collections import defaultdict
-
+import sys
 import numpy as np
 from scipy.io.wavfile import read, write
 
@@ -14,13 +14,13 @@ Adjust the CONSTANTS below and run this file.
 Labeled audio will appear in the "recordings" dir.
 """
 
-YOUR_NAME_HERE = 'theo'
+YOUR_NAME_HERE = 'anjana'
 
 # Where did you save your Audacity-exported wav file?
-PATH_TO_AUDIO_FILE = r'C:\Users\theo\Desktop\spoken_numbers_R_8khz.wav'
+PATH_TO_AUDIO_FILE = r'/home/deadpool/github/MNIST-AUDIO-CLASSIFICATION/mnist spoken data/anjana2.wav'
 
 # Time (seconds) between the beginning of the file and the first number
-# If your output files end up silent, change this number!
+# If your output files end up silaent, change this number!
 # It may help to look at the beginning of your recording in Audacity to see the offset.
 START_OFFSET = 1.2
 
@@ -28,7 +28,10 @@ START_OFFSET = 1.2
 SECS_PER_NUMBER = 3
 
 LABELS = generate_number_sequence()
-
+print(LABELS)
+print("Executed")
+sys.exit()
+print("Execute??")
 
 def split_wav(start_offset, secs_between_numbers, secs_per_number):
     fname = PATH_TO_AUDIO_FILE
@@ -58,10 +61,13 @@ def split_wav(start_offset, secs_between_numbers, secs_per_number):
 
         # Build filename
         outfile = label + "_" + YOUR_NAME_HERE + "_" + str(counts[label]) + ".wav"
-        outfile = 'recordings' + os.sep + outfile
+        # outfile = os.path.join(r"/home/deadpool/github/MNIST-AUDIO-CLASSIFICATION/mnist spoken data/recordings",outfile)
+        outfile = os.path.join("/home/deadpool/github/MNIST-AUDIO-CLASSIFICATION/test data/anjana",outfile)
 
         # Write audio chunk to file
-        print "writing", outfile
+        # print "writing", outfile
+        # print(os.getcwd())
+        # print(outfile)
         write(outfile, rate, digit_audio_trimmed)
         counts[label] += 1
 
