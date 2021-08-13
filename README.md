@@ -13,6 +13,13 @@ A simple audio/speech dataset consisting of recordings of spoken digits in wav f
 https://user-images.githubusercontent.com/36164059/129310445-8b9f8185-125f-431b-b7f4-380a0d3d36ef.mp4
 
 
+## Progress
+* ~~Analyse Dataset~~
+* ~~Process dataset (Feature extraction, normalization, train-test split)~~
+* ~~Build Models~~
+* Test Models
+* Deploy Model
+
 ## Acknowledgement
 [Dataset](https://github.com/Jakobovski)
 [Model](https://github.com/musikalkemist)
