@@ -1,1 +1,8 @@
 # MNIST-AUDIO-CLASSIFICATION
+
+This is an audio version of MNIST dataset which contains audio samples of 10 labels (number from 0 to 9).
+
+**Sample Audio**
+https://user-images.githubusercontent.com/36164059/129310445-8b9f8185-125f-431b-b7f4-380a0d3d36ef.mp4
+
+
