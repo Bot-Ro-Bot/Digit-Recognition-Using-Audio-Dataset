@@ -18,10 +18,12 @@ class _Inference:
     _instance = None
     
     def extract_features(self,path):
-        audio, _ = librosa.load(path)
+        audio, _ = librosa.load(path,sr=None)
+        audio, _ = librosa.effects.trim(audio,top_db=20,frame_length=256, hop_length=64)
+
         if(len(audio)>LENGTH):
             audio = audio[:LENGTH]
-        else:
+        elif(len(audio)<LENGTH):
             audio = np.pad(audio,(0,LENGTH-len(audio)),constant_values=(0,0))
 
         mfcc = librosa.feature.mfcc(audio,sr=SR,n_mfcc=n_mfcc,hop_length=hop_length,n_fft=n_fft)
@@ -36,7 +38,6 @@ class _Inference:
        
         # make prediction
         prediction = np.argmax (self.model.predict(mfcc))
-        
         return LABELS[int(prediction)]
 
 def Inference():
@@ -44,7 +45,7 @@ def Inference():
         # if instance is not created, create one
         _Inference._instance = _Inference()
         try:
-            _Inference.model = keras.models.load_model(os.path.join(MODEL_DIR,"model.h5"))
+            _Inference.model = keras.models.load_model(os.path.join(MODEL_DIR,"model4.h5"))
         except Exception as ex:
             print("Model Load Failed due to: ",ex)
     return _Inference._instance
@@ -52,15 +53,16 @@ def Inference():
 
 if __name__== "__main__":
     inf = Inference()
-    print(inf.predict("../one.wav"))
-    print(inf.predict("../two.wav"))
-    print(inf.predict("../three.wav"))
-    print(inf.predict("../four.wav"))
-    print(inf.predict("../five.wav"))
-    print(inf.predict("../six.wav"))
-    print(inf.predict("../seven.wav"))
-    print(inf.predict("../eight.wav"))
-    # print(inf.predict("../one.wav"))
-    # print(inf.predict("../one.wav"))
+
+    print(inf.predict("../test/zero.wav"))
+    print(inf.predict("../test/one.wav"))
+    print(inf.predict("../test/two.wav"))
+    print(inf.predict("../test/three.wav"))
+    print(inf.predict("../test/four.wav"))
+    print(inf.predict("../test/five.wav"))
+    print(inf.predict("../test/six.wav"))
+    print(inf.predict("../test/seven.wav"))
+    print(inf.predict("../test/eight.wav"))
+    print(inf.predict("../test/nine.wav"))
 
     # print(os.getcwd())

@@ -58,23 +58,27 @@ def process_data():
 
 def build_model(INPUT_SHAPE):
     model = keras.models.Sequential()
-    model.add(keras.layers.Conv2D(64,(3,3),activation="relu",input_shape=INPUT_SHAPE,kernel_regularizer=tf.keras.regularizers.l2(0.001)))
+    model.add(keras.layers.Conv2D(32,(3,3),activation="relu",input_shape=INPUT_SHAPE,kernel_regularizer=tf.keras.regularizers.l2(0.001)))
     model.add(tf.keras.layers.BatchNormalization())
     model.add(tf.keras.layers.MaxPooling2D((3, 3), strides=(2,2), padding='same'))
 
-    model.add(tf.keras.layers.Conv2D(32, (3, 3), activation='relu',
+    model.add(tf.keras.layers.Conv2D(64, (3, 3), activation='relu',
                                     kernel_regularizer=tf.keras.regularizers.l2(0.001)))
     model.add(tf.keras.layers.BatchNormalization())
     model.add(tf.keras.layers.MaxPooling2D((3, 3), strides=(2,2), padding='same'))
 
     # 3rd conv layer
-    model.add(tf.keras.layers.Conv2D(32, (2, 2), activation='relu',
+    model.add(tf.keras.layers.Conv2D(128, (2, 2), activation='relu',
                                     kernel_regularizer=tf.keras.regularizers.l2(0.001)))
     model.add(tf.keras.layers.BatchNormalization())
     model.add(tf.keras.layers.MaxPooling2D((2, 2), strides=(2,2), padding='same'))
 
     # flatten output and feed into dense layer
     model.add(tf.keras.layers.Flatten())
+
+    model.add(tf.keras.layers.Dense(256, activation='relu'))
+    tf.keras.layers.Dropout(0.3)
+
     model.add(tf.keras.layers.Dense(64, activation='relu'))
     tf.keras.layers.Dropout(0.3)
 
@@ -110,10 +114,12 @@ def main():
     test_loss, test_acc = model.evaluate(X_test, y_test)
     print("\nTest loss: {}, test accuracy: {}".format(test_loss, 100*test_acc))
     
+    
+
     # save model
     try:
         print("Saving Model ...: ")
-        save_model(model,os.path.join(MODEL_DIR,"model.hs"))
+        save_model(model,os.path.join(MODEL_DIR,"model4.h5"))
 
     except Exception as ex:
         print("Saving Model failed due to: ",ex)
