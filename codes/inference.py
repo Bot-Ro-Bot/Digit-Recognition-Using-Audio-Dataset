@@ -52,4 +52,15 @@ def Inference():
 
 if __name__== "__main__":
     inf = Inference()
-    print(inf.predict("/home/deadpool/github/MNIST-Audio-Classification/7_jackson_1.wav"))
+    print(inf.predict("../one.wav"))
+    print(inf.predict("../two.wav"))
+    print(inf.predict("../three.wav"))
+    print(inf.predict("../four.wav"))
+    print(inf.predict("../five.wav"))
+    print(inf.predict("../six.wav"))
+    print(inf.predict("../seven.wav"))
+    print(inf.predict("../eight.wav"))
+    # print(inf.predict("../one.wav"))
+    # print(inf.predict("../one.wav"))
+
+    # print(os.getcwd())
