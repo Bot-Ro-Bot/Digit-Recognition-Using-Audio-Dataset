@@ -1,6 +1,8 @@
 # importing necessary modules
 
+from _typeshed import OpenTextMode
 import os
+import pickle
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import StratifiedShuffleSplit
@@ -12,7 +14,9 @@ from tensorflow.keras.layers import Flatten, Conv2D, BatchNormalization, GlobalA
 
 
 def get_data():
-    pass
+    X = pickle.load(open("X","rb"))
+    Y = pickle.load(open("Y","rb"))
+    return X,Y
 
 def process_data():
     encoder = LabelEncoder()
