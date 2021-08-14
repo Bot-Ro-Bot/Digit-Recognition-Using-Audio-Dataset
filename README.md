@@ -13,6 +13,30 @@ A simple audio/speech dataset consisting of recordings of spoken digits in wav f
 https://user-images.githubusercontent.com/36164059/129310445-8b9f8185-125f-431b-b7f4-380a0d3d36ef.mp4
 
 
+## Demo
+**yet to be built**
+
+
+## Installation
+Follow these instructions to make this project work in your own machine.
+
+
+### Clone Repo
+```bash
+git clone https://github.com/Bot-Ro-Bot/MNIST-Audio-Classification.git
+```
+
+### Install Required Packages
+```bash
+cd MNIST-Audio-Classification
+pip install -r requirements.txt
+```
+
+### Launch Program
+```bash
+python app.py
+```
+
 ## Progress
 * ~~Analyse Dataset~~
 * ~~Process dataset (Feature extraction, normalization, train-test split)~~
