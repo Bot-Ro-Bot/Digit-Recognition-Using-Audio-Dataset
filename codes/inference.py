@@ -64,5 +64,3 @@ if __name__== "__main__":
     print(inf.predict("../test/seven.wav"))
     print(inf.predict("../test/eight.wav"))
     print(inf.predict("../test/nine.wav"))
-
-    # print(os.getcwd())
