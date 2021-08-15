@@ -41,8 +41,12 @@ python app.py
 * ~~Analyse Dataset~~
 * ~~Process dataset (Feature extraction, normalization, train-test split)~~
 * ~~Build Models~~
-* Test Models
+* ~~Test Models~~
 * Deploy Model
+
+
+## So, How does it work?
+
 
 ## Acknowledgement
 [Dataset](https://github.com/Jakobovski)

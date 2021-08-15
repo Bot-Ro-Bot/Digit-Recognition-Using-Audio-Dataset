@@ -17,3 +17,4 @@ if __name__=="__main__":
     # received response from server
     data = response.json()
     print("Prediction: ",data["label"])
+
