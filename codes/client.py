@@ -5,7 +5,7 @@ import requests
 
 URL = "http://127.0.0.1:5000/predict"
 
-FILE_PATH = "../test/one.wav"
+FILE_PATH = "../test/nine.wav"
 
 if __name__=="__main__":
     audio = open(FILE_PATH,"rb")
