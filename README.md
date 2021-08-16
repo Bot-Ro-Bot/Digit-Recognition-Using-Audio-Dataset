@@ -19,8 +19,7 @@ https://user-images.githubusercontent.com/36164059/129310445-8b9f8185-125f-431b-
 
 
 ## Demo
-**yet to be built**
-
+![alt text](Figures/demo.png)
 
 ## Installation
 Follow these instructions to make this project work in your own machine.
