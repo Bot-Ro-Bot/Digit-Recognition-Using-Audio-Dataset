@@ -42,10 +42,42 @@ python app.py
 * ~~Process dataset (Feature extraction, normalization, train-test split)~~
 * ~~Build Models~~
 * ~~Test Models~~
-* Deploy Model
+* ~~Deploy Model~~
 
 
 ## So, How does it work?
+
+### Model Development
+
+**Data Extraction and Processing -> Feature Extraction -> Prepare Dataset -> Train Model -> Test Model -> Deploy Model**
+ 
+### Client Request
+
+**Client -> NGNIX Server -> uWSGI Server -> Flask -> End-Point (Model Inference) @ Tensorflow**
+
+
+### Server Response
+
+**Prediction -> Flask -> uWSGI Server -> NGNIX Server -> Client**
+
+## Issues and Solution
+
+* ### Port 80 Error
+Start server.
+```bash
+docker-compose up
+```
+*Error Message*
+```bash
+Error starting userland proxy: listen tcp4 0.0.0.0:80: bind: address already in use
+``` 
+See whats using port 80:
+``` bash
+ sudo netstat -pna | grep 80
+```
+Most probably, you have other server listening to port 80. Disable or remove them to make the port 80 free.
+
+* ### Port 80 Error
 
 
 ## Acknowledgement
