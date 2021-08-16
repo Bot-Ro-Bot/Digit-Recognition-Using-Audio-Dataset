@@ -5,6 +5,11 @@ This is an audio version of MNIST dataset which contains audio samples of 10 lab
 ## Dataset
 
 A simple audio/speech dataset consisting of recordings of spoken digits in wav files at 8kHz. The recordings are trimmed so that they have near minimal silence at the beginnings and ends.
+* **Format :** ".wav"
+* **Sampling Rate:** 8000 Hz
+* **# of Samples :** 3000
+* **# of Speakers :** 6
+
 
 [Link to Dataset](https://github.com/Jakobovski/free-spoken-digit-dataset)
 
@@ -22,35 +27,76 @@ Follow these instructions to make this project work in your own machine.
 
 
 ### Clone Repo
-```bash
-git clone https://github.com/Bot-Ro-Bot/MNIST-Audio-Classification.git
-```
+  ```bash
+  git clone https://github.com/Bot-Ro-Bot/MNIST-Audio-Classification.git
+  ```
 
 ### Install Required Packages
-```bash
-cd MNIST-Audio-Classification
-pip install -r requirements.txt
-```
+  ```bash
+  cd MNIST-Audio-Classification
+  pip install virtualenv
+  virtualenv env
+  source env/bin/activate
+  pip install -r requirements.txt
+  ```
 
 ### Launch Program
-```bash
-python app.py
-```
+
+* **Flask Only**
+  * *Run Flask Development Server*
+    ```bash
+    python codes/server.py
+    ```
+  * *Make Prediction*
+    ```bash
+    python codes/client.py  
+    ````
+
+* **uWSGI and Flask**
+  * *Run Flask Development Server*
+    ```bash
+    uwsgi code/app.ini
+    ```
+  * *Make Prediction*
+    ```bash
+    python codes/client.py  
+    ````
+
+* **Containerized Docker running on local ubuntu server**
+  * *Build an ubuntu Server*
+    ```bash
+    cd docker
+    sudo docker-compose build
+    ```
+
+  * *Start Server*
+    ```bash
+    sudo docker-compose up  
+    ```
+
+  * *Make Prediction*
+    ```bash
+    python docker/client.py  
+    ```
+
 
 ## Progress
 * ~~Analyse Dataset~~
 * ~~Process dataset (Feature extraction, normalization, train-test split)~~
 * ~~Build Models~~
 * ~~Test Models~~
-* ~~Deploy Model~~
+* ~~Deploy Model locally~~
+* Deploy Model on a remote server
 
 
 ## So, How does it work?
+
 
 ### Model Development
 
 **Data Extraction and Processing -> Feature Extraction -> Prepare Dataset -> Train Model -> Test Model -> Deploy Model**
  
+
 ### Client Request
 
 **Client -> NGNIX Server -> uWSGI Server -> Flask -> End-Point (Model Inference) @ Tensorflow**
@@ -59,6 +105,8 @@ python app.py
 ### Server Response
 
 **Prediction -> Flask -> uWSGI Server -> NGNIX Server -> Client**
+
+
 
 ## Issues and Solution
 
@@ -77,8 +125,16 @@ See whats using port 80:
 ```
 Most probably, you have other server listening to port 80. Disable or remove them to make the port 80 free.
 
-* ### Port 80 Error
 
+## Technical Stack
+
+* Librosa
+* Keras
+* Sklearn
+* Flask
+* NGINX
+* uWSGI
+* Docker
 
 ## Acknowledgement
 [Dataset](https://github.com/Jakobovski)
