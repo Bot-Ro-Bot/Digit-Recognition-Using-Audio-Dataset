@@ -1,4 +1,4 @@
-# MNIST-AUDIO-CLASSIFICATION
+# Digit-Recognition-Using-Audio-Dataset
 
 This is an audio version of MNIST dataset which contains audio samples of 10 labels (number from 0 to 9).
 
