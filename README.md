@@ -84,6 +84,7 @@ Follow these instructions to make this project work in your own machine.
 * ~~Process dataset (Feature extraction, normalization, train-test split)~~
 * ~~Build Models~~
 * ~~Test Models~~
+* Use Microphone instead of text files as input
 * ~~Deploy Model locally~~
 * Deploy Model on a remote server
 
