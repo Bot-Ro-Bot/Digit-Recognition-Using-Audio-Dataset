@@ -22,7 +22,8 @@ from keras.models import save_model
 def get_data(path=DATA_DIR):
     try:
         print("Fetching data ...")
-        data = pickle.load(open(os.path.join(path,"data.pickle"),"rb"))
+        # data = pickle.load(open(os.path.join(path,"data.pickle"),"rb"))
+        data = pickle.load(open(os.path.join(path,"data_new.pickle"),"rb"))
         print("Data Fetched- Successful")
     except Exception as ex:
         print("Data fetching failed due to: ", ex)
@@ -119,7 +120,7 @@ def main():
     # save model
     try:
         print("Saving Model ...: ")
-        save_model(model,os.path.join(MODEL_DIR,"model4.h5"))
+        save_model(model,os.path.join(MODEL_DIR,"model5.h5"))
 
     except Exception as ex:
         print("Saving Model failed due to: ",ex)
