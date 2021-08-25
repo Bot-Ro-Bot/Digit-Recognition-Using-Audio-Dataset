@@ -2,8 +2,13 @@ import random
 from flask import Flask, json, jsonify, request, render_template
 from inference import Inference
 import os
-
+from audio import *
 app = Flask(__name__)
+
+
+@app.route("/")
+def home():
+    return render_template("index.html")
 
 @app.route("/predict",methods=["POST"])
 def predict():
@@ -26,10 +31,23 @@ def predict():
 
 
 
-@app.route("/record",methods=["POST"])
+@app.route("/record",methods=["POST","GET"])
 def record():
-    return render_template("record.html")
+    """
+    record data and return the numpy array for prediction
+    """
+    audio, save_audio = get_audio()
+    audio = audio.flatten()
+    save_audio()
+    inf = Inference()
+
+    prediction = inf.predict(audio)
+
+    data= {"label":prediction}
+  
+    return prediction
 
 if __name__ == "__main__":
     # run flask app
-    app.run(debug=False)
+    # app.run(debug=False)
+    app.run(debug=True)

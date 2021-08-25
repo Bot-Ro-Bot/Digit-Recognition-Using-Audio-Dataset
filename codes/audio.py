@@ -31,13 +31,17 @@ def get_audio(name="audio.wav",CHANNELS=MONO,duration=DURATION):
   
     def save_audio():
         try:
+            abc = len(os.listdir(INFER_DIR))
+            name = str(abc)+".wav"
+            print("Saving recording as: ",name)
             write(os.path.join(INFER_DIR,name), SR, recording)
             print("Recording saved.")
         except Exception as ex:
             print("Recording failed due to ", ex)
+    
     return recording,save_audio
 
 
 if __name__=="__main__":
     _ , save = get_audio()
-    # save()
+    save()

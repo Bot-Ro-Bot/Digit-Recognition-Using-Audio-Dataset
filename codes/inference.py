@@ -73,6 +73,7 @@ if __name__== "__main__":
         # print(audio.flatten().shape)
         # print(inf.predict("../captured_audios/audio.wav"))
         print(inf.predict(audio.flatten()))
+        
         # if((input("Press y to save audio file or any other key quit.")).lower()=="y"):
         #     save_audio()
 
