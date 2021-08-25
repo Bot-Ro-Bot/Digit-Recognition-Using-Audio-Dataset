@@ -1,5 +1,5 @@
 import random
-from flask import Flask, json, jsonify, request
+from flask import Flask, json, jsonify, request, render_template
 from inference import Inference
 import os
 
@@ -24,6 +24,11 @@ def predict():
     data= {"label":prediction}
     return jsonify(data)
 
+
+
+@app.route("/record",methods=["POST"])
+def record():
+    return render_template("record.html")
 
 if __name__ == "__main__":
     # run flask app

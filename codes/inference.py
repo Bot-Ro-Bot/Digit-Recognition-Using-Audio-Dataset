@@ -28,7 +28,7 @@ class _Inference:
         # else:
         #     audio, _ = librosa.load(path,sr=None)
         
-        # audio, _ = librosa.effects.trim(audio,top_db=20,frame_length=256, hop_length=64)
+        audio, _ = librosa.effects.trim(audio,top_db=20,frame_length=256, hop_length=64)
 
         if(len(audio)>LENGTH):
             audio = audio[:LENGTH]
@@ -68,13 +68,17 @@ def Inference():
 
 if __name__== "__main__":
     inf = Inference()
-    audio, save_audio = get_audio()
-    # print(audio.flatten().shape)
-    # print(inf.predict("../captured_audios/audio.wav"))
-    print(inf.predict(audio.flatten()))
-    if((input("Press y to save audio file or any other key quit.")).lower()=="y"):
-        save_audio()
+    while(True):
+        audio, save_audio = get_audio()
+        # print(audio.flatten().shape)
+        # print(inf.predict("../captured_audios/audio.wav"))
+        print(inf.predict(audio.flatten()))
+        # if((input("Press y to save audio file or any other key quit.")).lower()=="y"):
+        #     save_audio()
 
+        if((input("Press q to quit or any other key continue.")).lower()=="y"):
+            # save_audio()
+            break
     # print(inf.predict("../test/zero.wav"))
     # print(inf.predict("../test/one.wav"))
     # print(inf.predict("../test/two.wav"))

@@ -19,7 +19,7 @@ os.makedirs(INFER_DIR,exist_ok=True)
 # variable definitions
 LABELS = ["ZERO","ONE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE"]
 SAMPLE_RATE = SR = 8000 #Hz
-LENGTH = 4096 #default sample length
+LENGTH = 5300 #default sample length
 
 # mfcc parameters
 n_mfcc=20
