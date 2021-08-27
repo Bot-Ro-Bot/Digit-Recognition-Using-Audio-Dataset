@@ -86,7 +86,7 @@ Follow these instructions to make this project work in your own machine.
 * ~~Test Models~~
 * ~~Use Microphone instead of text files as input~~
 * ~~Deploy Model locally~~
-* Deploy Model on a remote server
+* Deploy Model on a remote server (Heroku or firebase)
 
 
 ## So, How does it work?
